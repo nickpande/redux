@@ -1,5 +1,7 @@
 import React from "react"
 import Users from "./components/Users"
+import Products from './components/Products'
+import { Link ,Routes,Route } from "react-router-dom"
 import { useSelector, useDispatch } from 'react-redux'
 // import { increment,decrement,incrementAsync} from "./assets/counter/Counter"
 function App() {
@@ -11,33 +13,16 @@ function App() {
 
   return (
    <>
-    {/* <div className="flex  align-middle  bg-zinc-100">
-      <div className="p-5 ">
-        <button className="mr-3 px-2 py-2 bg-blue-400 text-white rounded-md"
-          aria-label="Increment value"
-          onClick={() => dispatch(increment())}
-        >
-          Increment
-        </button>
-        
-        <button className="mr-3 px-2 py-2 bg-blue-400 text-white rounded-md"
-          aria-label="Decrement value"
-          onClick={() => dispatch(decrement())}
-        >
-          Decrement
-        </button>
-        <button className="mr-3 px-2 py-2 bg-blue-400 text-white rounded-md"
-          aria-label="Increment by 5 "
-          onClick={ handleClick}
-        >
-          incrementByAmount
-        </button>
-        <div className="mt-10 px-32">
-        <span className="px-5 bg-red-300 rounded text-white py-3">{count}</span>
-        </div>
-      </div>
-    </div> */}
-    <Users />
+<nav className="m-auto mt-4 mb-4  w-[50%] max-w-4xl h-14 px-6 py-2 bg-zinc-100 shadow-md rounded-xl flex justify-around items-center">
+  <Link to="/user" className="text-gray-700 hover:text-blue-600 font-medium transition duration-200">User</Link>
+  <Link to="/products" className="text-gray-700 hover:text-blue-600 font-medium transition duration-200">Products</Link>
+  <Link to="/About" className="text-gray-700 hover:text-blue-600 font-medium transition duration-200">About</Link>
+</nav>
+
+    <Routes>
+      <Route path="/user" element={<Users />} />
+      <Route path="products" element={<Products/>} />
+    </Routes>
     </>
   )
 }

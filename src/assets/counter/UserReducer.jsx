@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { useReducer } from "react";
 
 const initialState ={
     users:[{
@@ -2113,7 +2114,13 @@ export const UserSlice = createSlice({
     name:"users",
     initialState,
     reducers:{
+       deleteUser: (state, action)=>{
+         console.log(action.payload);
+         state.users[0].users.splice(action.payload,1)
+         
 
+       },
     },
 })
 export default UserSlice.reducer;
+export const {deleteUser}  = UserSlice.actions;
